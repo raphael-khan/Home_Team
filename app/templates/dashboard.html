@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <title>SELL FAST</title>
+</head>
+<body>
+    <header>
+        <nav class="nav justify-content-end navbar bg-secondary container">
+            <a href="/dashboard/new" class="nav-link">Add A New Listing</a>
+            <a href="" class="nav-link">Account</a>
+            <a href="/logout" class="nav-link">Logout</a>
+        </nav>
+    </header>
+    <br>
+    <h2 class="text-center">Dashboard</h2>
+    <p class="text-left p-3 mb-2 bg-success text-white d-flex container font-weight-bold">Welcome Sell Fast Agent, {{ user.first_name }}</p>
+    <main>
+        <div class="p-3 mb-2 container bg-success p-2 text-white">
+            <p class="font-weight-bold"> Current Listings:</p>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th> Property Image </th>
+                        <th> Property Name </th>
+                        <th> Address</th>
+                        <th> Number of bedrooms</th>
+                        <th> Number of bathrooms</th>
+                        <th> Price </th>
+                        <th> Actions </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for one_listing in all_listings  %}
+                    <tr>
+                        <td> <img src="{{url_for('static',filename='images/main_pic.jpg')}}" width="64px"  alt="display image" class="img-thumbnail"></td>
+                        <td>{{ one_listing.listing.property_name }}</td>
+                        <td>{{ one_listing.listing.address }}</td>
+                        <td>{{ one_listing.listing.number_of_bedrooms }}</td>
+                        <td>{{ one_listing.listing.number_of_bathrooms }}</td>
+                        <td>{{ one_listing.listing.price }}</td>
+                        <td><a class="btn btn-warning d-flex" href="/dashboard/edit/{{one_listing.listing.id}}">Edit</a><a class="btn btn-danger d-flex" href="/dashboard/delete/{{one_listing.listing.id}}">Delete</a><a class="btn btn-secondary d-flex" href="/dashboard/show/{{one_listing.listing.id}}">View</a> </td>
+                    </tr>
+                    {% endfor %}
+                </tbody> 
+            </table>
+        </div>
+    </main>
+    <footer class="bg-info container p-2">
+        <p class="text-center font-weight-bold">Sell Fast Corporation &copy;</p>
+        <div class="row">
+            <div class="text-left col-4">
+                <div class="input-group">
+                    <input type="text" class="form-control" aria-label="Sign-up" placeholder="Let's stay connected !">
+                    <div class="input-group-append">
+                        <button class="btn-success form-control">Sign up !</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-8 text-right">
+                <a href="https://lh3.googleusercontent.com/cdN3XxkXmg2r2Oa8wb47BsjMkTBrmp4JRuNgFrQKzKSZUHDOwia3_anjC446OwsN-VN--tkzwhx4fa7nAoQ75U41X8pRfizBJm-HL8Nhlte-aF44yLf-4z9y69eioss4IMjnaFCWsg=s32-p-k?source=screenshot.guru"> <img src="https://lh3.googleusercontent.com/cdN3XxkXmg2r2Oa8wb47BsjMkTBrmp4JRuNgFrQKzKSZUHDOwia3_anjC446OwsN-VN--tkzwhx4fa7nAoQ75U41X8pRfizBJm-HL8Nhlte-aF44yLf-4z9y69eioss4IMjnaFCWsg=s32-p-k" /> </a>
+                <a href="https://lh3.googleusercontent.com/Wu8HsQBppT51hwy2HuVpGsCehHYPQj3WrPS7MxbqpvALXyqUCZi2RwKiN3eemd_oVmBRjiYeQhkBzgNa1KGWs6bSY5U6iF7uM1LrwaB84gXxsMnjk75hUUli0jndvhpL9x8tBsiNqw=s32-p-k?source=screenshot.guru"> <img src="https://lh3.googleusercontent.com/Wu8HsQBppT51hwy2HuVpGsCehHYPQj3WrPS7MxbqpvALXyqUCZi2RwKiN3eemd_oVmBRjiYeQhkBzgNa1KGWs6bSY5U6iF7uM1LrwaB84gXxsMnjk75hUUli0jndvhpL9x8tBsiNqw=s32-p-k" /> </a>
+                <a href="https://lh3.googleusercontent.com/4EfqAKXRz8zy-XBAH2GnVGvzNFEXdc5UtaALpUWm-WUE4teSyMXyyqangNCY529mXFz1UDxLCF5uXI33D57CiP8FQHYodAbjGfpsOTmFtiuttrGJG1PqUEpHc-GHGZJzcG0y79cGGQ=s32-p-k?source=screenshot.guru"> <img src="https://lh3.googleusercontent.com/4EfqAKXRz8zy-XBAH2GnVGvzNFEXdc5UtaALpUWm-WUE4teSyMXyyqangNCY529mXFz1UDxLCF5uXI33D57CiP8FQHYodAbjGfpsOTmFtiuttrGJG1PqUEpHc-GHGZJzcG0y79cGGQ=s32-p-k" /> </a>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <title>SELL FAST</title>
+    <style>
+        body {
+            background-image: url(../static/images/main_pic2.jpeg);
+            background-size:cover;
+            background-size: 100%;
+        }
+    </style>
+</head>
+<body> 
+    <p>
+        <h2 class="text-center"> Welcome to Sell Fast !</h2>
+        <br>
+        <div class="text-center text-danger">
+            {% with messages = get_flashed_messages() %}
+                {% if messages %}
+                    {% for m in messages %}
+                        <h5>{{ m }}</h5>
+                    {% endfor %}
+                {% endif %}
+            {% endwith %}
+        </div>
+    </p>
+    <main>
+        <div class="p-3 mb-2 bg-info text-white w-25 p-3 container">
+            <form action="/register", method="post" class="form-group">
+                <section>
+                    <label for="first_name">First Name:</label>
+                    <input type="text" name="first_name" class="form-control">
+                </section>
+                <section>
+                    <label for="last_name">Last Name:</label>
+                    <input type="text" name="last_name" class="form-control">
+                </section>
+                <section>
+                    <label for="email">Email:</label>
+                    <input type="email" name="email" class="form-control">
+                </section>
+                <section>
+                    <label for="password">Password:</label>
+                    <input type="password" name="password" class="form-control">
+                </section>
+                <section>
+                    <label for="confirm">Confirm Password:</label>
+                    <input type="password" name="confirm" class="form-control">
+                </section>
+                <section>
+                    <button class="btn btn-success form-control">Register</button>
+                </section>
+            </form>
+            <form action="/login", method="post" class="form-group">
+                <section>
+                    <label for="email">Email:</label>
+                    <input type="email" name="email"class="form-control">
+                </section>
+                <section>
+                    <label for="password">Password:</label>
+                    <input type="password" name="password"class="form-control">
+                </section>
+                <section>
+                    <button class="btn btn-success form-control">Login</button>
+                </section>
+            </form>
+        </div>
+    </main>
+</body>
+</html>

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <title>SELL FAST</title>
+</head>
+<header>
+    <nav class="nav justify-content-end navbar bg-secondary container">
+        <a href="/dashboard" class="nav-link">Dashboard</a>
+        <a href="" class="nav-link">Account</a>
+        <a href="/logout" class="nav-link">Logout</a>
+    </nav>
+</header>
+<body>
+    <br>
+    <h2 class="text-center"> Edit Listing : {{ one_listing.property_name }}</h2>
+    {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                {% for m in messages %}
+                    <h5>{{ m }}</h5>
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+        <br>
+        <div class="p-3 mb-2 bg-info text-white w-25 p-3 container">
+            <form action="/dashboard/edit/update/{{one_listing.id}}", method="post" class="form-group">
+                <section>
+                    <label for="property_name">Property Name:</label>
+                    <input type="text" value="{{ one_listing.property_name }}" name="property_name" class="form-control">
+                </section>
+                <section>
+                    <label for="address">Address:</label>
+                    <textarea cols="30" rows="2"  name="address" class=" form-control" >{{one_listing.address}}</textarea>
+                </section>
+                <section>
+                    <label for="price">Price:</label>
+                    <input type="text" name="price" class="form-control" data-type="currency" placeholder="$" value="{{one_listing.price}}">
+                </section>
+                <section>
+                    <label for="description">Description:</label>
+                    <textarea cols="30" rows="8" name="description" class="form-control" >{{one_listing.description}}</textarea>
+                </section>
+                <br>
+                <section>
+                    <button class="btn btn-success form-control">Update</button>
+                </section>
+                <section style="display: none;">
+                    <label for="users_id">User</label>
+                    <input type="text" name="users_id" value="{{user.id}}">
+                </section>
+        </div>
+        <footer class="bg-info container p-2">
+            <p class="text-center font-weight-bold">Sell Fast Corporation &copy;</p>
+            <div class="row">
+                <div class="text-left col-4">
+                    <div class="input-group">
+                        <input type="text" class="form-control" aria-label="Sign-up" placeholder="Let's stay connected !">
+                        <div class="input-group-append">
+                            <button class="btn-success form-control">Sign up !</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-8 text-right">
+                    <a href="https://lh3.googleusercontent.com/cdN3XxkXmg2r2Oa8wb47BsjMkTBrmp4JRuNgFrQKzKSZUHDOwia3_anjC446OwsN-VN--tkzwhx4fa7nAoQ75U41X8pRfizBJm-HL8Nhlte-aF44yLf-4z9y69eioss4IMjnaFCWsg=s32-p-k?source=screenshot.guru"> <img src="https://lh3.googleusercontent.com/cdN3XxkXmg2r2Oa8wb47BsjMkTBrmp4JRuNgFrQKzKSZUHDOwia3_anjC446OwsN-VN--tkzwhx4fa7nAoQ75U41X8pRfizBJm-HL8Nhlte-aF44yLf-4z9y69eioss4IMjnaFCWsg=s32-p-k" /> </a>
+                    <a href="https://lh3.googleusercontent.com/Wu8HsQBppT51hwy2HuVpGsCehHYPQj3WrPS7MxbqpvALXyqUCZi2RwKiN3eemd_oVmBRjiYeQhkBzgNa1KGWs6bSY5U6iF7uM1LrwaB84gXxsMnjk75hUUli0jndvhpL9x8tBsiNqw=s32-p-k?source=screenshot.guru"> <img src="https://lh3.googleusercontent.com/Wu8HsQBppT51hwy2HuVpGsCehHYPQj3WrPS7MxbqpvALXyqUCZi2RwKiN3eemd_oVmBRjiYeQhkBzgNa1KGWs6bSY5U6iF7uM1LrwaB84gXxsMnjk75hUUli0jndvhpL9x8tBsiNqw=s32-p-k" /> </a>
+                    <a href="https://lh3.googleusercontent.com/4EfqAKXRz8zy-XBAH2GnVGvzNFEXdc5UtaALpUWm-WUE4teSyMXyyqangNCY529mXFz1UDxLCF5uXI33D57CiP8FQHYodAbjGfpsOTmFtiuttrGJG1PqUEpHc-GHGZJzcG0y79cGGQ=s32-p-k?source=screenshot.guru"> <img src="https://lh3.googleusercontent.com/4EfqAKXRz8zy-XBAH2GnVGvzNFEXdc5UtaALpUWm-WUE4teSyMXyyqangNCY529mXFz1UDxLCF5uXI33D57CiP8FQHYodAbjGfpsOTmFtiuttrGJG1PqUEpHc-GHGZJzcG0y79cGGQ=s32-p-k" /> </a>
+                </div>
+            </div>
+        </footer>
+</body>
+</html>

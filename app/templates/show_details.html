@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <title>SELL FAST</title>
+</head>
+<body>
+    <header>
+        <nav class="nav justify-content-end navbar bg-secondary container">
+            <a href="/dashboard" class="nav-link">Dashboard</a>
+            <a href="" class="nav-link">Account</a>
+            <a href="/logout" class="nav-link">Logout</a>
+        </nav>
+    </header>
+    <br>
+    <h2 class="text-left container">Here are the listing details:</h2>
+    <br>
+    <main class="p-3 mb-2 bg-success text-white d-flex container">
+        <div class="col-sm-6">
+            <p><img src="{{url_for('static',filename='images/main_pic.jpg')}}" width="100px"  alt="display image" class="img-thumbnail"></p>
+            <p class="text-left font-weight-bold">Property Name: {{one_listing.property_name}}</p>
+            <p class="text-left font-weight-bold">Property Type: {{one_listing.property_type}}</p>
+            <P class="text-left font-weight-bold">Description: {{one_listing.description}}</P>
+            <P class="text-left font-weight-bold" id = "address">Address: {{one_listing.address}}</P>
+            <P class="text-left font-weight-bold">Selling Price: {{one_listing.price}}</P>
+            <P class="text-left font-weight-bold">Number of bedrooms: {{one_listing.number_of_bedrooms}}</P>
+            <P class="text-left font-weight-bold">Number of bathrooms: {{one_listing.number_of_bathrooms}}</P>
+            <P class="text-left font-weight-bold">Seller: {{ one_listing.user.first_name }} {{ one_listing.user.last_name}}</P>
+        </div>
+        <div class="col-sm-6">
+            <div style="width: 400px; height: 400px;" id="map"></div>
+            <br>
+            <button class="btn btn-warning">Directions</button>
+        </div>
+    </main>
+        
+    <script>
+        let map;
+
+        address = document.getElementById('address')
+        console.log(address)
+        function initMap() {
+            $.get(`https://maps.googleapis.com/maps/api/geocode/json?address=${address.innerHTML}&key=AIzaSyD-n_7TWq7oV_uvBYxYGfv_q7GEorMdbaQ`,
+                function  (data, textStatus, jqXHR) {
+                    console.log('status: ' + textStatus + ', data:' + data.results);
+                    for (key in data) {
+                        console.log(key, data[key])
+                    }
+                    console.log(data['results'][0].geometry.location)
+                    map = new google.maps.Map(document.getElementById("map"), {
+                        center: data['results'][0].geometry.location,
+                        zoom: 9,
+                    });
+                    var marker = new google.maps.Marker({
+                        position : data['results'][0].geometry.location,
+                        map:map
+                    })
+                })
+            }
+            
+    </script>
+    <script async
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD-n_7TWq7oV_uvBYxYGfv_q7GEorMdbaQ&callback=initMap&v=weekly">
+    </script>
+<footer class="bg-info container p-2">
+    <p class="text-center font-weight-bold">Sell Fast Corporation &copy;</p>
+    <div class="row">
+        <div class="text-left col-4">
+            <div class="input-group">
+                <input type="text" class="form-control" aria-label="Sign-up" placeholder="Let's stay connected !">
+                <div class="input-group-append">
+                    <button class="btn-success form-control">Sign up !</button>
+                </div>
+            </div>
+        </div>
+        <div class="col-8 text-right">
+            <a href="https://lh3.googleusercontent.com/cdN3XxkXmg2r2Oa8wb47BsjMkTBrmp4JRuNgFrQKzKSZUHDOwia3_anjC446OwsN-VN--tkzwhx4fa7nAoQ75U41X8pRfizBJm-HL8Nhlte-aF44yLf-4z9y69eioss4IMjnaFCWsg=s32-p-k?source=screenshot.guru"> <img src="https://lh3.googleusercontent.com/cdN3XxkXmg2r2Oa8wb47BsjMkTBrmp4JRuNgFrQKzKSZUHDOwia3_anjC446OwsN-VN--tkzwhx4fa7nAoQ75U41X8pRfizBJm-HL8Nhlte-aF44yLf-4z9y69eioss4IMjnaFCWsg=s32-p-k" /> </a>
+            <a href="https://lh3.googleusercontent.com/Wu8HsQBppT51hwy2HuVpGsCehHYPQj3WrPS7MxbqpvALXyqUCZi2RwKiN3eemd_oVmBRjiYeQhkBzgNa1KGWs6bSY5U6iF7uM1LrwaB84gXxsMnjk75hUUli0jndvhpL9x8tBsiNqw=s32-p-k?source=screenshot.guru"> <img src="https://lh3.googleusercontent.com/Wu8HsQBppT51hwy2HuVpGsCehHYPQj3WrPS7MxbqpvALXyqUCZi2RwKiN3eemd_oVmBRjiYeQhkBzgNa1KGWs6bSY5U6iF7uM1LrwaB84gXxsMnjk75hUUli0jndvhpL9x8tBsiNqw=s32-p-k" /> </a>
+            <a href="https://lh3.googleusercontent.com/4EfqAKXRz8zy-XBAH2GnVGvzNFEXdc5UtaALpUWm-WUE4teSyMXyyqangNCY529mXFz1UDxLCF5uXI33D57CiP8FQHYodAbjGfpsOTmFtiuttrGJG1PqUEpHc-GHGZJzcG0y79cGGQ=s32-p-k?source=screenshot.guru"> <img src="https://lh3.googleusercontent.com/4EfqAKXRz8zy-XBAH2GnVGvzNFEXdc5UtaALpUWm-WUE4teSyMXyyqangNCY529mXFz1UDxLCF5uXI33D57CiP8FQHYodAbjGfpsOTmFtiuttrGJG1PqUEpHc-GHGZJzcG0y79cGGQ=s32-p-k" /> </a>
+        </div>
+    </div>
+</footer>
+</body>
+</html>
