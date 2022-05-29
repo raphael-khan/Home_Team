@@ -1,11 +1,11 @@
-# Sell Fast. 
+# Home Team. 
 
-
-Sell Fast is fully functioning web app that focues on bringing prospective homebuyers and real estate agents togather. 
+Python/flask-based web app for real-estate agents.                                                                   
+Other Tech: Flask, Jinja, Bootstrap 5, Netlify.
 
 Key Features:
-  * Full CRUD capabilities. 
-  * User Authentication & Password hashing. 
+  * User Authentication & Password hashing using SALT.
+  * Full CRUD functionality. 
   * Incoporates Google maps API & location pointer. 
-  * Built-in form Validations. 
-  * Connected to an SQL database for storing and fetching records using one - many & many - many relationships. 
+  * Built-in form Validations and error handlers. 
+  * Connected to an SQL database for storing and fetching records using one-many & many-many relationships. 
