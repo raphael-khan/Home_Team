@@ -1,0 +1,5 @@
+# virtual env
+/env
+
+# env keys
+.env
