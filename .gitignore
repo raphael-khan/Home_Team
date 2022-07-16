@@ -3,3 +3,9 @@
 
 # env keys
 .env
+
+#vscode
+.vscode 
+
+#pylance
+__pycache__
