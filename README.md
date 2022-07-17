@@ -1,7 +1,7 @@
 # Home Team.
 
 Python/flask-based web app for real-estate agents.                                                                   
-Other Tech: Flask, Jinja, Bootstrap 5, Netlify. (work in progress)
+Other Tech: Flask, Jinja, Bootstrap 5, Deployed with Heroku.
 
 Key Features:
   * User Authentication & Password hashing using SALT.
