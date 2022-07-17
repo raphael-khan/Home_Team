@@ -15,7 +15,7 @@ def view_dashboard():
     print(all_listings)
     return render_template('dashboard.html', user=User.get_one(data), all_listings=all_listings)
 
-# ------ route that render the page to report a sighiting for the user. 
+# ------ route that render the page to report a sightings for the user. 
 @app.route('/dashboard/new/')
 def report():
     if 'user_id' not in session:
