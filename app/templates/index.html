@@ -1,75 +1,51 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Home Team</title>
-    <link rel="favicon icon" href="../static/images/favicon.ico">
-    <style>
-        body {
-            background-image: url(../static/images/main_pic2.jpeg);
-            background-size:cover;
-            background-size: 100%;
-        }
-    </style>
-</head>
-<body> 
-    <p>
-        <h2 class="text-center"> Welcome, Home Team member !</h2>
-        <br>
-        <div class="text-center text-danger">
-            {% with messages = get_flashed_messages() %}
-                {% if messages %}
-                    {% for m in messages %}
-                        <h5>{{ m }}</h5>
-                    {% endfor %}
-                {% endif %}
-            {% endwith %}
-        </div>
-    </p>
+    <link rel="favicon icon" href="../static/images/favicon.ico" />
+    <link rel="stylesheet" href="../styles/home.css" />
+  </head>
+  <body>
     <main>
-        <div class="p-3 mb-2 bg-info text-white w-25 p-3 container">
-            <form action="/register", method="post" class="form-group">
-                <section>
-                    <label for="first_name">First Name:</label>
-                    <input type="text" name="first_name" class="form-control">
-                </section>
-                <section>
-                    <label for="last_name">Last Name:</label>
-                    <input type="text" name="last_name" class="form-control">
-                </section>
-                <section>
-                    <label for="email">Email:</label>
-                    <input type="email" name="email" class="form-control">
-                </section>
-                <section>
-                    <label for="password">Password:</label>
-                    <input type="password" name="password" class="form-control">
-                </section>
-                <section>
-                    <label for="confirm">Confirm Password:</label>
-                    <input type="password" name="confirm" class="form-control">
-                </section>
-                <section>
-                    <button class="btn btn-success form-control">Register</button>
-                </section>
-            </form>
-            <form action="/login", method="post" class="form-group">
-                <section>
-                    <label for="email">Email:</label>
-                    <input type="email" name="email"class="form-control">
-                </section>
-                <section>
-                    <label for="password">Password:</label>
-                    <input type="password" name="password"class="form-control">
-                </section>
-                <section>
-                    <button class="btn btn-success form-control">Login</button>
-                </section>
-            </form>
+      <form action="/login" , method="POST" class="login">
+        <div class="container">
+          <div class="heading">
+            <p class="welcome">Welcome back</p>
+            <div class="title">Login to your account</div>
+          </div>
+          <div class="error-msg">
+            {% with messages = get_flashed_messages() %} 
+              {% if messages %} 
+                  {% form in messages %}
+                      <div class="error">{{ m }}</div>
+                  {% endfor %} 
+              {% endif %} 
+            {% endwith %}
+          </div>
+          <div class="forms">
+            <label for="password">Email</label>
+            <input type="email" name="email" class="form" />
+            <label for="password">Password</label>
+            <input type="password" name="password" class="form" />
+          </div>
+          <div class="lost-password">
+            <div class="remember">
+              <input type="checkbox" name="remember" />
+              <label for="">Remember me</label>
+            </div>
+            <a href="#" class="forgot">Forgot password?</a>
+          </div>
+          <div class="btns">
+            <button class="login-btn">Login now</button>
+          </div>
+        </form>
+        <div class="register">
+          Dont have an account? <a href="./register.html">Join free today</a>
+        </div>
         </div>
     </main>
-</body>
+  </body>
 </html>
