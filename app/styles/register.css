@@ -22,12 +22,12 @@ main {
     height: 100vh;
     width: 100%;
     position: absolute;
-    padding: 1rem;
+    padding: 0 1rem;
     bottom: 0;
 }
 
 
-.login{
+.register{
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -35,12 +35,12 @@ main {
     gap: 2rem;
 }
 
-.login .heading .welcome{
+.register .heading .welcome{
     font-size: 1rem;
     font-weight: 400;
 }
 
-.login .heading .title{
+.register .heading .title{
     font-size: 2rem;
     font-weight: 700;
 }
@@ -58,13 +58,13 @@ main {
 }
 
 
-.login .forms {
+.register .forms {
     display: flex;
     flex-direction: column;
     gap: .5rem;
 }
 
-.login .forms .form {
+.register .forms .form {
     padding: .8rem .5rem;
     border: none;
     outline: none;
@@ -72,26 +72,26 @@ main {
     border-radius: 4px;
 }
 
-.login .lost-password{
+.register .lost-password{
     display: flex;
     justify-content: space-between;
 }
 
-.login .lost-password .remember input {
+.register .lost-password .remember input {
     accent-color: black;
 }
 
-.login .lost-password .forgot{
+.register .lost-password .forgot{
     text-decoration: none;
 
 }
 
-.login .btns{
+.register .btns{
     display: flex;
     flex-direction: column;
 }
 
-.login .btns .login-btn{
+.register .btns .register-btn{
     font-family: inherit;
     padding: .8rem .5rem;
     font-size: 1rem;
@@ -102,12 +102,12 @@ main {
     transition: .5s;
 }
 
-.login .btns .login-btn:hover{
+.register .btns .register-btn:hover{
     background-color: #029c4a;
     cursor: pointer;
 }
 
-.register{
+.login{
     position: absolute;
     bottom: 1rem;
     left: 50%;

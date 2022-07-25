@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Home Team</title>
+    <link rel="favicon icon" href="../static/images/favicon.ico" />
+    <link rel="stylesheet" href="../styles/register.css" />
+  </head>
+  <body>
+    <main>
+      <form action="/register" , method="POST" class="register">
+        <div class="heading">
+          <p class="welcome">Welcome back</p>
+          <div class="title">Sign up your account</div>
+        </div>
+        <div class="error-msg">
+          {% with messages = get_flashed_messages() %} 
+            {% if messages %} 
+                {% form in messages %}
+                    <div class="error">{{ m }}</div>
+                {% endfor %} 
+            {% endif %} 
+          {% endwith %}
+        </div>
+        <div class="forms">
+          <label>First Name</label>
+          <input type="text" name="first_name" class="form" />
+          <label>Last Name</label>
+          <input type="text" name="last_name" class="form" />
+          <label>Email</label>
+          <input type="email" name="email" class="form" />
+          <label>Password</label>
+          <input type="password" name="password" class="form" />
+          <label>Confirm password</label>
+          <input type="password" name="confirm" class="form" />
+        </div>
+        <div class="btns">
+          <button class="register-btn">Register</button>
+        </div>
+      </form>
+      <div class="login">
+        You have an account? <a href="./index.html">Sign in</a>
+      </div>
+    </main>
+  </body>
+</html>
