@@ -29,9 +29,16 @@ main {
 
 .register{
     display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+.container{
+    display: flex;
     flex-direction: column;
     justify-content: center;
-    height: 100%;
+    max-width: 30rem;
     gap: 2rem;
 }
 
@@ -118,7 +125,7 @@ main {
 
 @media(min-width:750px){
     main {
-        width: unset;
+        width: 50rem;
         right: 0;
     }
 }
